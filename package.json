@@ -1,0 +1,17 @@
+{
+  "name": "sass(spring-2019-6)",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "css-build": "node-sass --omit-source-map-url sass/jjjSass.sass css/jjjstyles.css",
+    "css-watch": "npm run css-build -- --watch",
+    "start": "npm run css-watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.11.0"
+  }
+}

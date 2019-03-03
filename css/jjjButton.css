@@ -1,0 +1,388 @@
+@charset "UTF-8";
+.btn {
+  /* 清零 */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  white-space: no-wrap;
+  /* 面 */
+  height: 1.8rem;
+  padding: 0.25rem 0.4rem;
+  background: #fff;
+  /* 线 */
+  border: 0.05rem solid #5755d9;
+  color: #5755d9;
+  outline: none;
+  border-radius: 0.1rem;
+  font-size: 0.8rem;
+  text-decoration: none;
+  /* 交互 */
+  cursor: pointer;
+  -webkit-transition: background .2s,border .2s, color .2s,-webkit-box-shadow .2s;
+  transition: background .2s,border .2s, color .2s,-webkit-box-shadow .2s;
+  transition: background .2s,border .2s, box-shadow .2s, color .2s;
+  transition: background .2s,border .2s, box-shadow .2s, color .2s,-webkit-box-shadow .2s;
+  /* 外位置 */
+  display: inline-block;
+  vertical-align: middle;
+  /* 内位置 */
+  line-height: 1.8rem;
+  text-align: center;
+}
+
+.btn:focus {
+  /* 线 */
+  -webkit-box-shadow: 0 0 0 0.1rem rgba(87, 85, 217, 0.2);
+          box-shadow: 0 0 0 0.1rem rgba(87, 85, 217, 0.2);
+}
+
+.btn:focus, .btn:hover {
+  /* 清零 */
+  text-decoration: none;
+  /* 面 */
+  background: #f1f1fc;
+  /* 线 */
+  border-color: #4b48d6;
+}
+
+.btn:active, .btn.active {
+  /* 清零 */
+  text-decoration: none;
+  /* 面 */
+  background: #5755d9;
+  /* 线 */
+  border-color: #4240d4;
+  color: #fff;
+}
+
+.btn:active.loading::after, .btn.active.loading::after {
+  /* 线 */
+  border-bottom-color: #fff;
+  border-left-color: #fff;
+}
+
+.btn[disabled], .btn.disabled, .btn:disabled {
+  /* 清零 */
+  pointer-events: none;
+  /* 面 */
+  opacity: .5;
+  /* 交互 */
+  cursor: default;
+}
+
+.btn.btn-primary {
+  /* 面 */
+  background: #5755d9;
+  /* 线 */
+  border-color: #4b48d6;
+  color: #fff;
+}
+
+.btn.btn-primary:focus, .btn.btn-primary:hover {
+  /* 面 */
+  background: #4744d5;
+  /* 线 */
+  border-color: #302ecd;
+}
+
+.btn.btn-primary:active, .btn.btn-primary.active {
+  /* 面 */
+  background: #3634d2;
+  /* 线 */
+  border-color: #2d2bc1;
+}
+
+.btn.btn-primary.loading::after {
+  /* 线 */
+  border-bottom-color: #fff;
+  border-left-color: #fff;
+}
+
+.btn.btn-success {
+  /* 面 */
+  background: #32b643;
+  /* 线 */
+  border-color: #2faa3f;
+  color: #fff;
+}
+
+.btn.btn-success:focus {
+  -webkit-box-shadow: 0 0 0 0.1rem rgba(50, 182, 67, 0.2);
+          box-shadow: 0 0 0 0.1rem rgba(50, 182, 67, 0.2);
+}
+
+.btn.btn-success:focus, .btn.btn-success:hover {
+  /* 面 */
+  background: #2ea63d;
+  /* 线 */
+  border-color: #278e34;
+  color: #fff;
+}
+
+.btn.btn-success:active, .btn.btn-success.active {
+  /* 面 */
+  background: #299637;
+  /* 线 */
+  border-color: #248230;
+  color: #fff;
+}
+
+.btn.btn-success.loading::after {
+  border-bottom-color: #fff;
+  border-left-color: #fff;
+}
+
+.btn.btn-success-outline {
+  /* 面 */
+  background: #fff;
+  /* 线 */
+  border-color: #32b643;
+  color: #32b643;
+}
+
+.btn.btn-success-outline:focus {
+  -webkit-box-shadow: 0 0 0 0.1rem rgba(50, 182, 67, 0.2);
+          box-shadow: 0 0 0 0.1rem rgba(50, 182, 67, 0.2);
+}
+
+.btn.btn-success-outline:focus, .btn.btn-success-outline:hover {
+  /* 面 */
+  background: #e1f7e4;
+  /* 线 */
+  border-color: #2faa3f;
+  color: #32b643;
+}
+
+.btn.btn-success-outline:active, .btn.btn-success-outline.active {
+  /* 面 */
+  background: #32b643;
+  /* 线 */
+  border-color: #2da23c;
+  color: #fff;
+}
+
+.btn.btn-success-outline.loading::after {
+  border-bottom-color: #32b643;
+  border-left-color: #32b643;
+}
+
+.btn.btn-error {
+  /* 面 */
+  background: #e85600;
+  /* 线 */
+  border-color: #d95000;
+  color: #fff;
+}
+
+.btn.btn-error:focus {
+  -webkit-box-shadow: 0 0 0 0.1rem rgba(232, 86, 0, 0.2);
+          box-shadow: 0 0 0 0.1rem rgba(232, 86, 0, 0.2);
+}
+
+.btn.btn-error:focus, .btn.btn-error:hover {
+  /* 面 */
+  background: #d44e00;
+  /* 线 */
+  border-color: #b54300;
+  color: #fff;
+}
+
+.btn.btn-error:active, .btn.btn-error.active {
+  /* 面 */
+  background: #bf4700;
+  /* 线 */
+  border-color: #a63d00;
+  color: #fff;
+}
+
+.btn.btn-error.loading::after {
+  border-bottom-color: #fff;
+  border-left-color: #fff;
+}
+
+.btn.btn-error-outline {
+  /* 面 */
+  background: #fff;
+  /* 线 */
+  border-color: #e85600;
+  color: #e85600;
+}
+
+.btn.btn-error-outline:focus {
+  -webkit-box-shadow: 0 0 0 0.1rem rgba(232, 86, 0, 0.2);
+          box-shadow: 0 0 0 0.1rem rgba(232, 86, 0, 0.2);
+}
+
+.btn.btn-error-outline:focus, .btn.btn-error-outline:hover {
+  /* 面 */
+  background: #ffe7d9;
+  /* 线 */
+  border-color: #d95000;
+  color: #e85600;
+}
+
+.btn.btn-error-outline:active, .btn.btn-error-outline.active {
+  /* 面 */
+  background: #e85600;
+  /* 线 */
+  border-color: #cf4d00;
+  color: #fff;
+}
+
+.btn.btn-error-outline.loading::after {
+  border-bottom-color: #e85600;
+  border-left-color: #e85600;
+}
+
+.btn.btn-warning {
+  /* 面 */
+  background: #ffb700;
+  /* 线 */
+  border-color: #f0ac00;
+  color: #fff;
+}
+
+.btn.btn-warning:focus {
+  -webkit-box-shadow: 0 0 0 0.1rem rgba(255, 183, 0, 0.2);
+          box-shadow: 0 0 0 0.1rem rgba(255, 183, 0, 0.2);
+}
+
+.btn.btn-warning:focus, .btn.btn-warning:hover {
+  /* 面 */
+  background: #eba800;
+  /* 线 */
+  border-color: #cc9200;
+  color: #fff;
+}
+
+.btn.btn-warning:active, .btn.btn-warning.active {
+  /* 面 */
+  background: #d69a00;
+  /* 线 */
+  border-color: #bd8700;
+  color: #fff;
+}
+
+.btn.btn-warning.loading::after {
+  border-bottom-color: #fff;
+  border-left-color: #fff;
+}
+
+.btn.btn-warning-outline {
+  /* 面 */
+  background: #fff;
+  /* 线 */
+  border-color: #ffb700;
+  color: #ffb700;
+}
+
+.btn.btn-warning-outline:focus {
+  -webkit-box-shadow: 0 0 0 0.1rem rgba(255, 183, 0, 0.2);
+          box-shadow: 0 0 0 0.1rem rgba(255, 183, 0, 0.2);
+}
+
+.btn.btn-warning-outline:focus, .btn.btn-warning-outline:hover {
+  /* 面 */
+  background: #fffbf0;
+  /* 线 */
+  border-color: #f0ac00;
+  color: #ffb700;
+}
+
+.btn.btn-warning-outline:active, .btn.btn-warning-outline.active {
+  /* 面 */
+  background: #ffb700;
+  /* 线 */
+  border-color: #e6a500;
+  color: #fff;
+}
+
+.btn.btn-warning-outline.loading::after {
+  border-bottom-color: #ffb700;
+  border-left-color: #ffb700;
+}
+
+.btn.btn-link {
+  /* 清零 */
+  background: transparent;
+  border-color: transparent;
+  /* 线 */
+  color: #5755d9;
+}
+
+.btn.btn-link:focus, .btn.btn-link:hover, .btn.btn-link:active, .btn.btn-link.active {
+  /* 线 */
+  color: #302ecd;
+}
+
+.btn.btn-sm {
+  /* 面 */
+  height: 1.4rem;
+  padding: 0.05rem 0.3rem;
+  /* 线 */
+  font-size: 0.7rem;
+}
+
+.btn.btn-lg {
+  /* 面 */
+  height: 2rem;
+  padding: 0.35rem 0.6rem;
+  /* 线 */
+  font-size: 0.9rem;
+}
+
+.btn.btn-block {
+  width: 100%;
+  display: block;
+}
+
+.btn-group {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.btn-group .btn {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+}
+
+.btn-group .btn:first-child:not(:last-child) {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.btn-group .btn:not(:first-child):not(:last-child) {
+  border-radius: 0;
+  margin-left: -0.05rem;
+}
+
+.btn-group .btn:last-child:not(:first-child) {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  margin-left: -0.05rem;
+}
+
+.btn-group .btn:focus, .btn-group .btn:hover, .btn-group .btn:active, .btn-group .btn.active {
+  z-index: 1;
+}
+
+.btn-group .btn.btn-group-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.btn-group .btn.btn-group-block .btn {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 0px;
+          flex: 1 0 0;
+}
+/*# sourceMappingURL=jjjButton.css.map */

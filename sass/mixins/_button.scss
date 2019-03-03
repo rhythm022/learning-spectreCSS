@@ -1,0 +1,73 @@
+// Button variant mixin
+@mixin button-variant($color: $primary-color) {
+  /* 面 */
+  background: $color;//P
+  /* 线 */
+  border-color: darken($color, 3%);//PD
+  color: $light-color;//#fff
+
+//.btn.btn-sucXXX:focus
+  &:focus {
+    @include control-shadow($color);
+  }
+
+//.btn.btn-sucXXX:focus
+//.btn.btn-sucXXX:hover
+  &:focus,
+  &:hover {
+    /* 面 */
+    background: darken($color, 4%);//P=>PD4
+    /* 线 */
+    border-color: darken($color, 10%);//PD=>PD10
+    color: $light-color;//#fff=>#fff
+  }
+//.btn.btn-sucXXX:active
+  &:active,
+  &.active {
+    /* 面 */
+    background: darken($color, 8%);//P=>PD4=>PD8
+    /* 线 */
+    border-color: darken($color, 13%);//PD=>PD10=>PD13
+    color: $light-color;
+  }
+//.btn.btn-sucXXX.loading::after
+  &.loading {
+    &::after {
+      border-bottom-color: $light-color;
+      border-left-color: $light-color;
+    }
+  }
+}
+
+@mixin button-outline-variant($color: $primary-color) {
+  /* 面 */
+  background: $light-color;//#fff
+  /* 线 */
+  border-color: $color;//P
+  color: $color;//P
+  &:focus {
+    @include control-shadow($color);
+  }
+  &:focus,
+  &:hover {
+    /* 面 */
+    background: lighten($color, 47%);//#fff=>PL47
+    /* 线 */
+    border-color: darken($color, 3%);//P=>PD
+    color: $color;//P=>P
+  }
+  &:active,
+  &.active {
+    /* 面 */
+    background: $color;//#fff=>PL37=>P
+    /* 线 */
+    border-color: darken($color, 5%);//P=>PD=>PD5
+    color: $light-color;//P=>P=>#fff
+  }
+  &.loading {
+    &::after {
+      border-bottom-color: $color;
+      border-left-color: $color;
+    }
+  }
+}

@@ -1,0 +1,212 @@
+@import 'variables';
+@import 'mixins/shadow';
+@import 'mixins/button';
+
+// .btn实际是.btn.btn-primary-outline
+.btn{
+    /* 清零 */
+    appearance: none;
+    user-select:none;
+    white-space: no-wrap;
+    /* 面 */
+    height: $control-size;//1.8rem
+    padding:$control-padding-y $control-padding-x;//.3(-.05)rem .4rem
+    background: $bg-color-light;//#fff
+    /* 线 */
+    border:$border-width solid $primary-color;//0.5rem P
+    color:$primary-color;//P
+    outline:none;
+    border-radius: $border-radius;//0.1rem
+    font-size:$font-size;//0.8rem
+    text-decoration: none;
+    /* 交互 */
+    cursor: pointer;
+    transition: background .2s,border .2s, box-shadow .2s, color .2s;
+    /* 外位置 */
+    display: inline-block;
+    vertical-align: middle;
+    /* 内位置 */
+    line-height:$control-size;//1.2rem
+    text-align:center;
+
+// .btn:focus
+    &:focus {
+       /* 线 */
+       @include control-shadow();
+    }
+
+// .btn:focus
+// .btn:hover    
+    &:focus,
+    &:hover {
+        /* 清零 */
+        text-decoration: none;
+        /* 面 */
+        background:$secondary-color;//#fff=>PL37
+        /* 线 */
+        border-color:$primary-color-dark;//P=>PD
+    }
+
+// .btn:active
+    &:active,
+    &.active {
+        /* 清零 */
+        text-decoration: none;
+        /* 面 */
+        background:$primary-color;//#fff=>PL37=>P
+        /* 线 */
+        border-color:darken($primary-color, 5%);//P=>PD=>PD5
+        color:$light-color;//P=>P=>#fff
+
+// .btn:active.loading::after
+        &.loading{
+            &::after{
+                /* 线 */
+                border-bottom-color: $light-color;
+                border-left-color: $light-color;
+            }
+        }
+    }
+
+// .btn[disabled]
+    &[disabled],
+    &.disabled,
+    &:disabled{
+        /* 清零 */
+        pointer-events: none;
+        /* 面 */
+        opacity: .5;
+        /* 交互 */
+        cursor: default;
+    }
+
+// .btn.btn-primary
+    &.btn-primary {
+        /* 面 */
+        background: $primary-color;//P
+        /* 线 */
+        border-color: $primary-color-dark;//PD
+        color: $light-color;//#fff
+
+// .btn.btn-primary:focus
+// .btn.btn-primary:hover
+        &:focus,
+        &:hover{
+            /* 面 */
+            background:darken($primary-color,4%);//P=>PD4
+            /* 线 */
+            border-color:darken($primary-color,10%);//PD=>PD10
+        }
+
+// .btn.btn-primary:active
+        &:active,
+        &.active{
+            /* 面 */
+            background: darken($primary-color,8%);//P=>PD4=>PD8
+            /* 线 */
+            border-color: darken($primary-color,13%);//PD=>PD10=>PD13
+        }
+
+// .btn.btn-primary.loading::after
+        &.loading{
+            &::after{
+                /* 线 */
+                border-bottom-color: $light-color;
+                border-left-color: $light-color;
+            }
+        }
+
+    }
+
+    &.btn-success{
+        @include button-variant($success-color)
+    }
+    &.btn-success-outline{
+        @include button-outline-variant($success-color)
+    }
+    &.btn-error{
+        @include button-variant($error-color)
+    }
+    &.btn-error-outline{
+        @include button-outline-variant($error-color)
+    }
+    &.btn-warning{
+        @include button-variant($warning-color)
+    }
+    &.btn-warning-outline{
+        @include button-outline-variant($warning-color)
+    }
+    &.btn-link{
+        /* 清零 */
+        background: transparent;
+        border-color: transparent;
+        /* 线 */
+        color:$link-color;//P
+        &:focus,
+        &:hover,
+        &:active,
+        &.active{
+            /* 线 */
+            color:$link-color-dark;//PD10
+        }
+    }
+
+    &.btn-sm{
+        /* 面 */
+        height: $control-size-sm;//1.4rem
+        padding:$control-padding-y-sm $control-padding-x-sm;//.1(-.05)rem 0.75x.4rem
+        /* 线 */
+        font-size:$font-size-sm;//.7rem
+        //注意line-height不变
+    }
+    &.btn-lg{
+        /* 面 */
+        height:$control-size-lg;//2rem
+        padding: $control-padding-y-lg $control-padding-x-lg;//.4(-.05)rem 1.5x.4rem
+        /* 线 */
+        font-size: $font-size-lg;//.9rem
+    }
+   &.btn-block{
+       //面
+       width:100%;
+       //外位置
+       display:block;
+   }
+  
+}
+
+.btn-group{
+    display:inline-flex;
+    flex-wrap:wrap;
+    .btn{
+        flex:1 0 auto;
+        &:first-child:not(:last-child){
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+        }
+        &:not(:first-child):not(:last-child){
+            border-radius: 0;
+            margin-left: -$border-width;
+        }
+        &:last-child:not(:first-child){
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            margin-left: -$border-width;
+        }
+        &:focus,
+        &:hover,
+        &:active,
+        &.active {
+          z-index: $zindex-0;
+        }
+        &.btn-group-block{
+            display:flex;
+            .btn{
+                flex:1 0 0;
+            }
+        }
+      
+    }
+}
+
+
