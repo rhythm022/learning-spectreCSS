@@ -28,7 +28,7 @@
     background: darken($color, 8%);//P=>PD4=>PD8
     /* 线 */
     border-color: darken($color, 13%);//PD=>PD10=>PD13
-    color: $light-color;
+    color: $light-color;//#fff=>#fff=>#fff
   }
 //.btn.btn-sucXXX.loading::after
   &.loading {

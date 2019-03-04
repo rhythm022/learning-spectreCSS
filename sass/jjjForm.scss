@@ -1,0 +1,385 @@
+@import 'variables';
+@import 'mixins/shadow';
+*{
+    box-sizing: border-box;
+}
+//group给了MB
+.form-group {
+    &:not(:last-child) {
+        /* 外位置 */
+        margin-bottom: $layout-spacing;
+    }
+}
+
+fieldset {
+    margin-bottom: $layout-spacing-lg;
+}
+
+legend {
+    font-size: $font-size-lg;
+    font-weight: 500;
+    margin-bottom: $layout-spacing-lg;
+}
+
+//form-label给了label block和padding
+.form-label {
+    padding: $control-padding-y + $border-width 0;
+    font-size: $font-size;
+    display: block;
+    line-height: $line-height;
+    &.label-sm {
+        padding: $control-padding-y-sm + $border-width 0; //why add $border-width?
+        font-size: $font-size-sm;
+    }
+    &.label-lg {
+        padding: $control-padding-y-lg + $border-width 0;
+        font-size: $font-size-lg;
+    }
+}
+
+//.form-group .form-input默认width:100%可通过.input-inline修改
+.form-input {
+    /* 清零 */
+    appearance: none;
+    /* 面 */
+    background: $bg-color-light; //light-color=#fff
+    background-image: none;
+    height: $control-size; //unit9
+    max-width: 100%;
+    width: 100%;
+    padding: $control-padding-y $control-padding-x;
+    /* 线 */
+    outline: none;
+    border: $border-width solid $border-color-dark; //d10
+    border-radius: $border-radius; //h
+    color: $body-font-color; //DL5
+    font-size: $font-size; //.8rem
+    /* 交互 */
+    transition: background .2s, border .2s, box-shadow .2s, color .2s;
+    /* 外位置 */
+    display: block;
+    position: relative; //Why
+    /* 内位置 */
+    line-height: $line-height; //1.2rem
+    &:focus {
+        @include control-shadow(); //P
+        border-color: $primary-color; //P
+    }
+    &::placeholder {
+        color: $gray-color; //G
+    }
+    &.input-sm {
+        height: $control-size-sm; //unit7
+        padding: $control-padding-y-sm $control-padding-x-sm;
+        font-size: $font-size-sm; //.7rem
+    }
+    &.input-lg {
+        height: $control-size-lg; //unit10
+        padding: $control-padding-y-lg $control-padding-x-lg;
+        font-size: $font-size-lg; //.9rem
+    }
+    &.input-inline {
+        /* 面 */
+        width: auto;
+        /* 外位置 */
+        display: inline-block;
+        vertical-align: middle;
+    }
+    &[type="file"] {
+        height: auto;
+    }
+}
+
+textarea.form-input {
+    &,
+    &.input-lg,
+    &.input-sm {
+        height: auto;
+    }
+}
+
+// .form-input-hint {
+//     /* 线 */
+//     color: $gray-color; //G
+//     font-size: $font-size-sm;
+//     /* 外位置 */
+//     margin-top: $unit-1; //unit1
+//     .has-success &,
+//     .is-success+& {
+//         /* 线 */
+//         color: $success-color
+//     }
+//     .has-error &,
+//     .is-error+& {
+//         /* 线 */
+//         color: $error-color
+//     }
+// }
+
+.form-select {
+    /* 清零 */
+    appearance: none;
+    /* 面 */
+    background: $bg-color-light; //light-color=#fff
+    height: $control-size;
+    padding: $control-padding-y $control-padding-x;
+    width: 100%;
+    /* 线 */
+    outline: none;
+    border: $border-width solid $border-color-dark;
+    border-radius: $border-radius;
+    color: inherit; //??
+    font-size: $font-size;
+    /* 外位置 */
+    vertical-align: middle;
+    /* 内位置 */
+    line-height: $line-height;
+    &:focus {
+        @include control-shadow(); //P
+        border-color: $primary-color;
+    }
+    &::-ms-expand {
+        display: none;
+    }
+    &.select-sm {
+        /* 面 */
+        height: $control-size-sm;
+        padding: $control-padding-y-sm ($control-padding-x-sm + $control-icon-size) $control-padding-y-sm $control-padding-x-sm;
+        /* 线 */
+        font-size: $font-size-sm;
+    }
+    &.select-lg {
+        /* 面 */
+        height: $control-size-lg;
+        padding: $control-padding-y-lg ($control-padding-x-lg + $control-icon-size) $control-padding-y-lg $control-padding-x-lg;
+        /* 线 */
+        font-size: $font-size-lg;
+    }
+    &.select-inline {
+        /* 面 */
+        width: auto;
+        /* 外位置 */
+        display: inline-block;
+        vertical-align: middle;
+    }
+    &[size],
+    &[multiple] {
+        /* 面 */
+        height: auto;
+        padding: $control-padding-y $control-padding-x;
+        option {
+            padding: $unit-h $unit-1;
+        }
+    }
+    &:not([multiple]):not([size]) {
+        /* 面 */
+        background: $bg-color-light url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%204%205'%3E%3Cpath%20fill='%23667189'%20d='M2%200L0%202h4zm0%205L0%203h4z'/%3E%3C/svg%3E") no-repeat right .35rem center / .4rem .5rem;
+        padding-right: $control-icon-size + $control-padding-x;
+    }
+}
+
+// .has-icon-left,
+// .has-icon-right {
+//     /* 位置 */
+//     position: relative;
+//     .form-icon {
+//         /* 面 */
+//         height: $control-icon-size;
+//         width: $control-icon-size;
+//         /* 外位置 */
+//         position: absolute;
+//         top: 50%;
+//         z-index: $zindex-0 + 1;
+//         transform: translateY(-50%);
+//         margin: 0 $control-padding-y;
+//     }
+// }
+
+// .has-icon-left {
+//     .form-icon {
+//         /* 外位置 */
+//         left: $border-width
+//     }
+//     .form-input {
+//         /* 面 */
+//         padding-left: $control-icon-size + $control-padding-y * 2; //why *2
+//     }
+// }
+
+// .has-icon-right {
+//     .form-icon {
+//         right: $border-width;
+//     }
+//     .form-input {
+//         padding-right: $control-icon-size + $control-padding-y * 2;
+//     }
+// }
+//----------------------------------------------------------//
+.form-checkbox,
+.form-radio,
+.form-switch {
+    /* 面 */
+    min-height: $control-size-sm;
+    padding: (($control-size-sm - $line-height) / 2) $control-padding-x (($control-size-sm - $line-height) / 2) ($control-icon-size + $control-padding-x);
+    /* 外位置 */
+    display: block;
+    margin: ($control-size - $control-size-sm) / 2 0; //??
+    /* 内位置 */
+    position: relative;
+    line-height: $line-height;
+    input {
+        /* 清零 */
+        position: absolute;
+        clip: rect(0, 0, 0, 0); // height:1px;
+        // width: 1px;
+        // margin: -1px;
+        // overflow: hidden;
+        &:focus + .form-icon {
+            /* 线 */
+            @include control-shadow();
+        }
+        &:active + .form-icon {
+            /* 面 */
+            background: $bg-color-dark;//#fff=>#灰
+        }
+        &:checked + .form-icon {
+            /* 面 */
+            background: $primary-color;//#fff=>#灰=>P
+            /* 线 */
+            border-color: $primary-color;//#灰=>#灰=>P
+        }
+        
+    }
+    
+}
+
+.form-checkbox,
+.form-radio {
+    .form-icon {
+        /* 面 */
+        background: $bg-color-light;//#fff
+        height: $control-icon-size;
+        width: $control-icon-size;
+        /* 线 */
+        border: $border-width solid $border-color-dark;//#灰
+        /* 交互 */
+        cursor: pointer;
+        transition: background .2s, border .2s, box-shadow .2s, color .2s;
+        /* 外位置 */
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: ($control-size-sm - $control-icon-size) / 2;
+    }
+}
+
+.form-switch {
+    /* 面 */
+    padding-left:($unit-8 + $control-padding-x);
+   .form-icon{
+       /* 面 */
+       background: $gray-color;
+       background-clip: padding-box;
+       height:$unit-4 + $border-width * 2;
+       width: $unit-8;
+       /* 线 */
+       border: $border-width solid $border-color-dark;
+       border-radius: $unit-2 + $border-width;
+       /* 交互 */
+       cursor: pointer;
+       transition: background .2s, border .2s, box-shadow .2s, color .2s;
+       /* 外位置 */
+       display: inline-block;
+       position: absolute;
+       left:0;
+       top:($control-size-sm - $unit-4) / 2 - $border-width;
+       &::before{
+           /* 面 */
+           background: $bg-color-light;
+           height: $unit-4;
+           width: $unit-4;
+           /* 线 */
+           border-radius: 50%;
+           content:'';
+           /* 交互 */
+           transition: background .2s, border .2s, box-shadow .2s, color .2s, left .2s;
+           /* 外位置 */
+           display: block;
+           position: absolute;
+           left: 0;
+           top: 0;
+       }
+   }
+   input {
+    &:checked + .form-icon {
+      &::before {
+        left: 14px;
+      }
+    }
+    &:active + .form-icon {
+      &::before {
+        background: $bg-color;
+      }
+    }
+}
+}
+
+.form-radio{
+    .form-icon{
+        border-radius: 50%;
+    }
+    input{
+        &:checked + .form-icon{
+            &::before{
+                /* 面 */
+                background: $bg-color-light;//#fff
+                height: 6px;
+                width: 6px;
+                /* 线 */
+                border-radius: 50%;
+                content:"";
+                /* 外位置 */
+                position: absolute;
+                top:50%;
+                left:50%;
+                transform: translate(-50%,-50%);
+            }
+        }
+    }
+  
+}
+.form-checkbox{
+    .form-icon{
+        border-radius: $border-radius;
+    }
+    input{
+        &:checked + .form-icon{
+            &::before{
+                /* 面 */
+                background-clip:padding-box;
+                height: 9px;
+                width: 6px;
+                /* 线 */
+                border: $border-width-lg solid $light-color;
+                border-left-width: 0;
+                border-top-width: 0;
+                content: '';
+                /* 外位置 */
+                position: absolute;
+                top:50%;
+                left:50%;
+                margin-left: -3px;
+                margin-top: -6px;
+                transform: rotate(45deg)
+            }
+        }
+    }
+}
+
+.jjj{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 1px solid red;
+    height: 22px;
+    width: 22px;
+}
